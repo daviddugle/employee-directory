@@ -17,7 +17,7 @@ class EmployeeResults extends Component {
       componentDidMount() {
     axios.get("https://randomuser.me/api/?results=50&nat=us&inc=name,email,nat,location,dob,picture&format=JSON").then(res => {
       const results = res.data.results;
-      this.setState( [results] );
+      this.setState( results );
       console.log(results);
     });
   }
@@ -30,7 +30,21 @@ class EmployeeResults extends Component {
         return (
             <div>
             <SearchForm />
-            <ResultList results={this.state.results}/>
+            {this.state.results.map(result =>(
+                <ResultList 
+                
+                picture={result.picture.medium}
+                firstName={result.name.first}
+                lastName={result.name.last}
+                email={result.email}
+                location={result.location.city}
+                />
+
+
+
+            ))}
+            
+            
             </div>
 
         )
