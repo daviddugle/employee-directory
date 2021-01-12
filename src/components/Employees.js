@@ -33,15 +33,26 @@ class EmployeeResults extends Component {
 //       [name]: value
 //     });
 //   };
-  //this is to check for a value
-//   handleFormSubmit = event => {
-//     event.preventDefault();
-//     // this.searchMovies(this.state.search);
+//   //this is to check for a value
+  handleFormSubmit = event => {
+    event.preventDefault();
+    // this.searchMovies(this.state.search);
+    console.log("submit button")
+    // console.log(event.target.value)
+    // const newArr = this.state.results.filter(employee =>)
 
-//     console.log(event.target.value)
-//     // const newArr = this.state.results.filter(employee =>)
+  };
 
-//   };
+  handleFormSort = event => {
+      event.preventDefault();
+      console.log("sort button");
+      console.log(this.state.results.result);
+      const sorts = this.state.results;
+
+      const newSort = sorts.sort((a,b) => (a.name.last, b.name.last) ? 1 : -1);
+      console.log(newSort)
+
+  }
 
 
 
@@ -53,6 +64,7 @@ class EmployeeResults extends Component {
             <SearchForm
             results={this.state.results}
             handleFormSubmit={this.handleFormSubmit}
+            handleFormSort={this.handleFormSort}
             // value={this.state.search}
             />
             {this.state.results.map(employee =>(

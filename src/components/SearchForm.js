@@ -6,11 +6,11 @@ function SearchForm(props) {
       <>
     <div className="jumbotron jumbotron-fluid">
     <div className="container">
-      <h1 className="display-4">Employee Directory</h1>
+      <h1 className="display-4 text-center">Employee Directory</h1>
       
     </div>
   </div>
-    <form>
+    <form type="submit">
       <div className="form-group">
         <label htmlFor="search">Search:</label>
         <input
@@ -22,8 +22,11 @@ function SearchForm(props) {
           placeholder="Search for an Employee"
           id="search"
         />
-        <button onClick={props.handleFormSubmit} type="submit" className="btn btn-primary mt-3">
+        <button onClick={props.handleFormSubmit} className="btn btn-primary mt-3">
           Search
+        </button>
+        <button onClick={props.handleFormSort} className="btn btn-success ml-3 mt-3">
+          Sort by Name
         </button>
       </div>
     </form>
