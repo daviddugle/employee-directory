@@ -41,8 +41,8 @@ class EmployeeResults extends Component {
     // const newArr = this.state.results.filter(employee =>)
 
   };
-
-  handleFormSort = event => {
+  //sort by name
+  nameSort = event => {
     event.preventDefault();
     const sorts = this.state.results;
     sorts.sort((a, b) => {
@@ -56,8 +56,38 @@ class EmployeeResults extends Component {
     })
     this.setState({ sorts })
   }
+  // sort by email
+  emailSort = event => {
+    event.preventDefault();
+    const emailSorts = this.state.results;
+    emailSorts.sort((a, b) => {
+      if (a.email > b.email) {
+        return 1
+      }
+      else {
+        return -1
+      }
 
+    })
+    this.setState({ emailSorts })
+  }
 
+  // sort by location
+  locationSort = event => {
+    event.preventDefault();
+    console.log("location sort")
+    const locationSorts = this.state.results;
+    locationSorts.sort((a, b) => {
+      if (a.location.city > b.location.city) {
+        return 1
+      }
+      else {
+        return -1
+      }
+
+    })
+    this.setState({ locationSorts })
+  }
 
 
 
@@ -78,13 +108,13 @@ class EmployeeResults extends Component {
           value={this.state.search}
           handleInputChange={this.handleInputChange}
         />
-        <table class="table">
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">Photo</th>
-              <th scope="col">Name</th>
-              <th scope="col">Email</th>
-              <th scope="col">Location</th>
+              <th scope="col" onClick={this.nameSort}>Name</th>
+              <th scope="col" onClick={this.emailSort}>Email</th>
+              <th scope="col" onClick={this.locationSort}>Location</th>
             </tr>
           </thead>
           <tbody>
