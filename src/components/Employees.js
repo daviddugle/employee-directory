@@ -46,11 +46,22 @@ class EmployeeResults extends Component {
   handleFormSort = event => {
       event.preventDefault();
       console.log("sort button");
-      console.log(this.state.results.result);
+      console.log(this.state.results[0].name.last);
       const sorts = this.state.results;
 
-      const newSort = sorts.sort((a,b) => (a.name.last, b.name.last) ? 1 : -1);
-      console.log(newSort)
+
+
+      sorts.sort((a,b) => {
+          if (a.name.last > b.name.last){
+              return 1
+          }
+          else{
+              return -1
+          }
+            
+      })
+      this.setState({sorts})
+      console.log(sorts)
 
   }
 
