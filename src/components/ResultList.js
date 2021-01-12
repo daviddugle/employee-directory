@@ -2,25 +2,36 @@ import React from "react";
 
 function ResultList(props) {
   return (
+    
+    
 
-    <div className="card">
-      <div className="img-container">
-        <img alt={props.lastName} src={props.picture} />
-      </div>
-      <div className="content">
-        <ul>
-          <li>
-            <strong>Name:</strong> {props.firstName} {props.lastName}
-          </li>
-          <li>
-            <strong>Email:</strong> {props.email}
-          </li>
-          <li>
-            <strong>Location:</strong> {props.location}
-          </li>
-        </ul>
-      </div>
-    </div>
+      props.results.map(result => (
+        <>
+          <div className="card">
+            <div className="img-container">
+              <img alt={result.name.last} src={result.picture.medium} />
+            </div>
+            <div className="card-body">
+              
+                <p>
+                  <strong>Name:</strong> {result.name.first} {result.name.last}
+                </p>
+                <p>
+                  <strong>Email:</strong> {result.email}
+                </p>
+                <p>
+                  <strong>Location:</strong> {result.location.city}
+                </p>
+              
+            </div>
+          </div>
+        </>
+
+
+    
+
+      ))
+    
 
   );
 }
