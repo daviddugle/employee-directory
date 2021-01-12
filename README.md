@@ -120,7 +120,7 @@ In your browser.
 
 ## Photos
 
-![DeployedPhoto](assets/Screenshot 2021-01-12 072952.jpg)
+![DeployedPhoto](https://github.com/daviddugle/employee-directory/blob/main/assets/Screenshot%202021-01-12%20072952.jpg?raw=true)
 
 
 
