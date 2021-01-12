@@ -1,39 +1,40 @@
 import React from "react";
 
-function ResultList(props) {
+function ResultList({results}) {
   return (
+
+
+
+
+    <>
+
+      <div className="card">
+        <div className="img-container">
+          <img alt={results.name.last} src={results.picture.medium} />
+        </div>
+        <div className="card-body">
+
+          <p>
+            <strong>Name:</strong> {results.name.first} {results.name.last}
+          </p>
+          <p>
+            <strong>Email:</strong> {results.email}
+          </p>
+          <p>
+            <strong>Location:</strong> {results.location.city}
+          </p>
+
+        </div>
+      </div>
+    </>
+
+
+
+
+  )
     
-    
 
-      props.results.map(result => (
-        <>
-          <div className="card">
-            <div className="img-container">
-              <img alt={result.name.last} src={result.picture.medium} />
-            </div>
-            <div className="card-body">
-              
-                <p>
-                  <strong>Name:</strong> {result.name.first} {result.name.last}
-                </p>
-                <p>
-                  <strong>Email:</strong> {result.email}
-                </p>
-                <p>
-                  <strong>Location:</strong> {result.location.city}
-                </p>
-              
-            </div>
-          </div>
-        </>
-
-
-    
-
-      ))
-    
-
-  );
+  
 }
 
 export default ResultList;
