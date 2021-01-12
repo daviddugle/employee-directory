@@ -9,89 +9,89 @@ class EmployeeResults extends Component {
 
 
 
-    state = {
-        results: [],
-        search: ""
-    };
+  state = {
+    onChangingList:[],
+    results: [],
+    search: ""
+  };
 
-    // When this component mounts, search the  API for ? do I need this area?
+  // When this component mounts, search the  API for ? do I need this area?
 
-      componentDidMount() {
+  componentDidMount() {
     axios.get("https://randomuser.me/api/?results=20&nat=us&inc=name,login,email,nat,location,id,dob,picture&format=JSON").then(res => {
       const results = res.data.results;
-      this.setState( {results: results} );
+      this.setState({ results: results, onChangingList:results });
       console.log(results)
     });
   }
 
-  
+
   // this is the value of the input field
-//   handleInputChange = event => {
-//     const value = event.target.value;
-//     const name = event.target.name;
-//     this.setState({
-//       [name]: value
-//     });
-//   };
-//   //this is to check for a value
+  handleInputChange = event => {
+    const searchValue = event.target.value
+    const filteredList = this.state.onChangingList.filter(user=>user.name.first.toLowerCase().includes(searchValue.toLowerCase()) || user.name.last.toLowerCase().includes(searchValue.toLowerCase()))
+    this.setState({ search: searchValue, results: filteredList })
+  };
+  //   //this is to check for a value
   handleFormSubmit = event => {
     event.preventDefault();
     // this.searchMovies(this.state.search);
     console.log("submit button")
-    // console.log(event.target.value)
+    console.log(event.target.value)
     // const newArr = this.state.results.filter(employee =>)
 
   };
 
   handleFormSort = event => {
-      event.preventDefault();
-      console.log("sort button");
-      console.log(this.state.results[0].name.last);
-      const sorts = this.state.results;
+    event.preventDefault();
+    const sorts = this.state.results;
+    sorts.sort((a, b) => {
+      if (a.name.last > b.name.last) {
+        return 1
+      }
+      else {
+        return -1
+      }
 
-
-
-      sorts.sort((a,b) => {
-          if (a.name.last > b.name.last){
-              return 1
-          }
-          else{
-              return -1
-          }
-            
-      })
-      this.setState({sorts})
-      console.log(sorts)
-
+    })
+    this.setState({ sorts })
   }
 
 
 
 
 
-    render() {
-        return (
-            <div>
-            <SearchForm
-            results={this.state.results}
-            handleFormSubmit={this.handleFormSubmit}
-            handleFormSort={this.handleFormSort}
-            // value={this.state.search}
-            />
-            {this.state.results.map(employee =>(
-                <ResultList 
-                results={employee}
-                key={employee.id.value}
-                
-                />
+  render() {
+    return (
+      <div>
+        <div className="jumbotron jumbotron-fluid">
+          <div className="container">
+            <h1 className="display-4 text-center">Employee Directory</h1>
 
-            ))}
-            
-            
-            </div>
+          </div>
+        </div>
 
-        )
-    }
+        <SearchForm
+          results={this.state.results}
+          handleFormSubmit={this.handleFormSubmit}
+          handleFormSort={this.handleFormSort}
+          value={this.state.search}
+          handleInputChange={this.handleInputChange}
+        />
+        {this.state.results.map(employee => (
+          <ResultList
+            results={employee}
+            key={employee.id.value}
+
+          />
+
+        ))}
+
+
+      </div>
+
+    )
+  }
 
 
 

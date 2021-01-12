@@ -10,7 +10,7 @@ function ResultList({results}) {
 
       <div className="card">
         <div className="img-container">
-          <img alt={results.name.last} src={results.picture.medium} />
+          <img alt={results.name.last} src={results.picture.large} />
         </div>
         <div className="card-body">
 
