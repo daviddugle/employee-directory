@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SearchForm from "./SearchForm";
 import ResultList from "./ResultList";
+import "./style.css";
 
 import axios from "axios";
 
@@ -96,7 +97,7 @@ class EmployeeResults extends Component {
       <div>
         <div className="jumbotron jumbotron-fluid">
           <div className="container">
-            <h1 className="display-4 text-center">Employee Directory</h1>
+            <h1 className="display-4 text-center text-light">Employee Directory</h1>
 
           </div>
         </div>
@@ -108,13 +109,13 @@ class EmployeeResults extends Component {
           value={this.state.search}
           handleInputChange={this.handleInputChange}
         />
-        <table className="table">
-          <thead>
+        <table className="table thead-dark">
+          <thead className="thead-dark">
             <tr>
               <th scope="col">Photo</th>
-              <th scope="col" onClick={this.nameSort}>Name</th>
-              <th scope="col" onClick={this.emailSort}>Email</th>
-              <th scope="col" onClick={this.locationSort}>Location</th>
+              <th scope="col" className="hover" onClick={this.nameSort}>Name</th>
+              <th scope="col" className="hover" onClick={this.emailSort}>Email</th>
+              <th scope="col" className="hover" onClick={this.locationSort}>Location</th>
             </tr>
           </thead>
           <tbody>
