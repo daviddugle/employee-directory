@@ -84,6 +84,8 @@ Just visit the deployed site.
 
 Use the search field to find an employee by name and use the sort to view them alphabetically.
 
+To use the app you just need to click the headers of the table for sorting of the Name, Email and Location. You can also search the list of names by the search field.
+
 
 
 

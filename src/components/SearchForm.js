@@ -5,7 +5,7 @@ function SearchForm({value, handleInputChange}) {
   return (
       <>
   
-    <div>
+    <div className="searchBox">
         <label htmlFor="search">Search:</label>
         <input
           value={value}
