@@ -1,14 +1,21 @@
 import React from "react";
 
-function ResultList({results}) {
+function ResultList({ results }) {
   return (
 
 
 
 
     <>
+      <tr>
+        <td><img alt={results.name.last} src={results.picture.large} /></td>
+        <td>{results.name.first} {results.name.last}</td>
+        <td>{results.email}</td>
+        <td>{results.location.city}</td>
+      </tr>
 
-      <div className="card">
+
+      {/* <div className="card">
         <div className="img-container">
           <img alt={results.name.last} src={results.picture.large} />
         </div>
@@ -25,16 +32,16 @@ function ResultList({results}) {
           </p>
 
         </div>
-      </div>
+      </div> */}
     </>
 
 
 
 
   )
-    
 
-  
+
+
 }
 
 export default ResultList;

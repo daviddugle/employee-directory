@@ -10,7 +10,7 @@ class EmployeeResults extends Component {
 
 
   state = {
-    onChangingList:[],
+    onChangingList: [],
     results: [],
     search: ""
   };
@@ -20,7 +20,7 @@ class EmployeeResults extends Component {
   componentDidMount() {
     axios.get("https://randomuser.me/api/?results=20&nat=us&inc=name,login,email,nat,location,id,dob,picture&format=JSON").then(res => {
       const results = res.data.results;
-      this.setState({ results: results, onChangingList:results });
+      this.setState({ results: results, onChangingList: results });
       console.log(results)
     });
   }
@@ -29,7 +29,7 @@ class EmployeeResults extends Component {
   // this is the value of the input field
   handleInputChange = event => {
     const searchValue = event.target.value
-    const filteredList = this.state.onChangingList.filter(user=>user.name.first.toLowerCase().includes(searchValue.toLowerCase()) || user.name.last.toLowerCase().includes(searchValue.toLowerCase()))
+    const filteredList = this.state.onChangingList.filter(user => user.name.first.toLowerCase().includes(searchValue.toLowerCase()) || user.name.last.toLowerCase().includes(searchValue.toLowerCase()))
     this.setState({ search: searchValue, results: filteredList })
   };
   //   //this is to check for a value
@@ -78,14 +78,25 @@ class EmployeeResults extends Component {
           value={this.state.search}
           handleInputChange={this.handleInputChange}
         />
-        {this.state.results.map(employee => (
-          <ResultList
-            results={employee}
-            key={employee.id.value}
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Photo</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.results.map(employee => (
+              <ResultList
+                results={employee}
+                key={employee.id.value}
 
-          />
-
-        ))}
+              />
+            ))}
+          </tbody>
+        </table>
 
 
       </div>
