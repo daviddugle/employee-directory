@@ -9,9 +9,9 @@ function ResultList({ results }) {
     <>
       <tr>
         <td><img alt={results.name.last} src={results.picture.large} /></td>
-        <td>{results.name.first} {results.name.last}</td>
-        <td>{results.email}</td>
-        <td>{results.location.city}</td>
+        <td >{results.name.first} {results.name.last}</td>
+        <td >{results.email}</td>
+        <td >{results.location.city}</td>
       </tr>
 
 
