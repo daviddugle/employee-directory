@@ -63,7 +63,9 @@ This is a REACT project that allows an employer to view a list of employees and 
 
 ## Installation Instructions
 
-Just visit the deployed site.
+Just visit the <a href='https://daviddugle.github.io/employee-directory/' target='_blank'>deployed site.</a>
+
+
 
 
 
