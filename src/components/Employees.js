@@ -109,7 +109,7 @@ class EmployeeResults extends Component {
           value={this.state.search}
           handleInputChange={this.handleInputChange}
         />
-        <div className="searchBox">Click on the header to search by Name, Email or Location</div>
+        <div className="searchBox text-center">Click on the header to search by Name, Email or Location</div>
         <table className="table thead-dark searchBox">
           <thead className="thead-dark">
             <tr>

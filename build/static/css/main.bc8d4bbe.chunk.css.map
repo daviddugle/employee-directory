@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/components/style.css"],"names":[],"mappings":"AAAA,WACI,+BAAiC,CACjC,wBACJ,CACA,WACI,gBACJ","file":"main.bc8d4bbe.chunk.css","sourcesContent":[".jumbotron{\r\n    background-color: blue !important; \r\n    text-shadow: 3px 3px black;\r\n}\r\n.searchBox{\r\n    margin-left: 10px;\r\n}\r\n"]}
